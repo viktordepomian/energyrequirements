@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energibehovsräknare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Energibehovsräknare</h1>
+            <p>Beräkna ditt dagliga energibehov med olika formler</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h2>Personuppgifter</h2>
+                <form id="calculator-form">
+                    <div class="form-group">
+                        <label for="gender">Kön:</label>
+                        <select id="gender" required>
+                            <option value="">Välj kön</option>
+                            <option value="male">Man</option>
+                            <option value="female">Kvinna</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight">Vikt (kg):</label>
+                        <input type="number" id="weight" min="30" max="300" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height">Längd (cm):</label>
+                        <input type="number" id="height" min="100" max="250" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Ålder (år):</label>
+                        <input type="number" id="age" min="15" max="120" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activity">Aktivitetsnivå (PAL):</label>
+                        <select id="activity" required>
+                            <option value="">Välj aktivitetsnivå</option>
+                            <option value="1.15">1. Sängliggande (1.1-1.2)</option>
+                            <option value="1.4">2. Stillasittande arbete, lite/ingen fritidsaktivitet (1.3-1.5)</option>
+                            <option value="1.65">3. Stillasittande arbete med viss rörelse, lite fritidsaktivitet (1.6-1.7)</option>
+                            <option value="1.85">4. Stående/gående arbete (t.ex. hushållsarbete, butiksarbete) (1.8-1.9)</option>
+                            <option value="2.2">5. Mycket tungt arbete eller daglig träning (toppidrottare) (2.0-2.4)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group calculation-options">
+                        <h3>Beräkningsmetod</h3>
+                        <div class="radio-group">
+                            <input type="radio" id="harris-benedict" name="formula" value="harris-benedict" checked>
+                            <label for="harris-benedict">Harris-Benedict</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="mifflin" name="formula" value="mifflin">
+                            <label for="mifflin">Mifflin</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="quick" name="formula" value="quick">
+                            <label for="quick">Snabbformel</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="calculate-btn">Beräkna</button>
+                </form>
+            </section>
+
+            <section class="results-section" id="results-section">
+                <h2>Resultat</h2>
+                <div class="results-container">
+                    <div class="result-box">
+                        <h3>BMR (Basalmetabolism)</h3>
+                        <p id="bmr-result">-</p>
+                        <p class="result-explanation">Energi kroppen behöver i vila</p>
+                    </div>
+                    <div class="result-box">
+                        <h3>TEE (Totalt energibehov)</h3>
+                        <p id="tee-result">-</p>
+                        <p class="result-explanation">Totalt dagligt energibehov med aktivitet</p>
+                    </div>
+                </div>
+                <div class="formula-explanation" id="formula-explanation">
+                    <!-- Formelförklaring kommer att visas här -->
+                </div>
+            </section>
+        </main>
+
+        <section class="info-section">
+            <h2>Om beräkningsmetoderna</h2>
+            
+            <div class="info-box">
+                <h3>Harris-Benedict formel</h3>
+                <p>Används för att beräkna BMR hos friska personer.</p>
+                <p><strong>Män:</strong> 66.5 + (13.8 × vikt) + (5 × längd) - (6.8 × ålder)</p>
+                <p><strong>Kvinnor:</strong> 655 + (9.6 × vikt) + (1.8 × längd) - (4.7 × ålder)</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Mifflin formel</h3>
+                <p>Används för att beräkna BMR hos friska personer, särskilt lämplig för överviktiga.</p>
+                <p>9.99 × vikt + 6.25 × längd - 4.92 × ålder + 166 × kön - 161</p>
+                <p>(Kön: man = 1, kvinna = 0)</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Snabbformel</h3>
+                <p>För snabb uppskattning av energibehov när begränsad information finns tillgänglig.</p>
+                <p>Energibehov = vikt × (25 till 35)</p>
+                <p>Friska vuxna behöver vanligtvis 25-30 kcal/kg/dag.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>PAL (Fysisk aktivitetsnivå)</h3>
+                <p>För att beräkna totalt energibehov (TEE), multiplicera BMR med PAL:</p>
+                <p>TEE = BMR × PAL</p>
+                <p>De flesta människor har en PAL mellan 1,4 och 1,7.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Energibehovsräknare &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

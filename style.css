@@ -1,0 +1,261 @@
+/* 
+ * Energy Calculator - Style Sheet
+ * Minimalist black and white design with light blue accent
+ */
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --accent-color: #add8e6; /* Light blue */
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --success-color: #4caf50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+    }
+    
+    .input-section, .results-section {
+        flex: 1;
+    }
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+h2 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+    margin: 15px 0 10px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(173, 216, 230, 0.3);
+}
+
+.calculation-options {
+    margin-top: 30px;
+}
+
+.radio-group {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 30px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #9ac8d8;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.results-section {
+    display: none;
+}
+
+.results-section.active {
+    display: block;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 576px) {
+    .results-container {
+        flex-direction: row;
+    }
+    
+    .result-box {
+        flex: 1;
+    }
+}
+
+.result-box {
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.result-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.result-box .result-explanation {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.formula-explanation {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-left: 4px solid var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.info-section {
+    margin-top: 40px;
+}
+
+.info-box {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+.info-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 15px;
+    }
+    
+    .result-box p {
+        font-size: 1.5rem;
+    }
+}
